@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --left-grad-1:#05455a;
+  --left-grad-2:#0a7f80;
+  --left-grad-3:#08a6b4;
+  --card-white:#ffffff;
+}
+
+html,body,#root{
+  height:100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(160deg, var(--left-grad-1) 0%, var(--left-grad-2) 45%, var(--left-grad-3) 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.auth-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url('/auth-illustration.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.left-panel {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.left-accent {
+  position: absolute;
+  right: -80px;
+  bottom: -100px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.55;
+  background: radial-gradient(circle at 20% 20%, rgba(45,212,191,0.95), rgba(6,182,212,0.65) 40%, transparent 60%);
+}
+
+.auth-card {
+  border-radius: 12px;
+  background: var(--card-white);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.18);
+  padding: 24px;
+}
+
+.input-base {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(15,23,42,0.06);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.small-muted {
+  font-size: 13px;
+  color: rgba(15,23,42,0.65);
+}
+
+@media (max-width: 768px) {
+  .left-panel { border-radius: 12px 12px 0 0; }
+  .auth-card { border-radius: 0 0 12px 12px; }
+}
+
+/* --------------------------------------------- */
+/* PAGE TRANSITION ANIMATION (Login ↔ Signup)    */
+/* --------------------------------------------- */
+
+@keyframes pageFadeScale {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.page-transition {
+  animation: pageFadeScale 0.42s ease-out;
+}
+
+
+/* --------------------------------------------- */
+/* FLOATING DECORATION ANIMATION (shapes float)  */
+/* --------------------------------------------- */
+
+@keyframes floatUpDown {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: floatUpDown 3.8s ease-in-out infinite;
+}
+
+
+/* --------------------------------------------- */
+/* OPTIONAL: stagger delay for multiple shapes    */
+/* --------------------------------------------- */
+
+.floating-delay-1 {
+  animation-delay: 0.6s;
+}
+
+.floating-delay-2 {
+  animation-delay: 1.2s;
+}
+
+.floating-delay-3 {
+  animation-delay: 1.8s;
+}
+/* Success animation keyframes */
+@keyframes popIn {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes ringExpand {
+  0% { transform: scale(0.1); opacity: 0.5; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.success-check {
+  animation: popIn 0.6s ease-out forwards;
+}
+
+.success-ring {
+  animation: ringExpand 0.9s ease-out forwards;
+}
+/* POP-OUT SUCCESS CARD */
+@keyframes successPop {
+  0% { transform: scale(0.6) translateY(20px); opacity: 0; }
+  60% { transform: scale(1.05) translateY(0px); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Green pulse glow around check icon */
+@keyframes pulseGlow {
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+  100% { transform: scale(1); box-shadow: 0 0 20px 6px rgba(34,197,94,0); }
+}
+
+.success-card {
+  animation: successPop 0.55s ease-out forwards;
+}
+
+.success-icon {
+  animation: pulseGlow 1.2s ease-out infinite alternate;
+}
+
+/* CONFETTI FALL */
+@keyframes confettiFall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(40px) rotate(180deg); opacity: 0; }
+}
+
+.confetti {
+  animation: confettiFall 1s ease-out forwards;
+}
+
+/* Spinner loader */
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
