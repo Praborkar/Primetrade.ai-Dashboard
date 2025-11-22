@@ -78,7 +78,7 @@ JWT_SECRET=your_jwt_secret
 
 ## 🌐 Deployment
 - Frontend: Netlify  
-- Backend: Render / Railway / AWS / Heroku  
+- Backend: Render 
 
 ## 🤝 Contributing
 Contributions are welcome. Fork and submit PRs with improvements.
