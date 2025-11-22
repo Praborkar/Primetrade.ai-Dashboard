@@ -42,7 +42,7 @@ The **Primetrade.ai Dashboard** is a frontend dashboard application designed wit
 ```
 Primetrade.ai-Dashboard/
  ├── frontend/               # React dashboard code
- ├── backend/                # API server (optional if implemented)
+ ├── backend/                # API server
  ├── netlify.toml            # Frontend deployment config
  └── README.md
 ```
@@ -72,8 +72,7 @@ npm run dev
 Create a `.env` file:
 ```
 PORT=5000
-DB_URI=your_database_url
-JWT_SECRET=your_jwt_secret
+*****
 ```
 
 ## 🌐 Deployment
